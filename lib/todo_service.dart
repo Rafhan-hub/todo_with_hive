@@ -27,9 +27,11 @@ class TodoService {
 
   }
 
-  Future<void> updateTask(TodoModel todoModel, int index) async{
+  Future<void> updateTask(TodoModel todoModel, int index, {bool isEditTitle = false}) async{
     var box = await _box;
-    todoModel.isCompleted = !todoModel.isCompleted;
+    if(!isEditTitle) {
+      todoModel.isCompleted = !todoModel.isCompleted;
+    }
     await box.putAt(index, todoModel);
   }
 }

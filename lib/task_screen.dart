@@ -14,10 +14,7 @@ class TaskListScreen extends StatelessWidget {
       builder:(context, snapshot) {
         if(snapshot.hasData) {
           return TaskScreen();
-        } else if(!snapshot.hasData) {
-          return const Text('No Task Yet');
-        }
-        else {
+        } else {
           return const CircularProgressIndicator();
         }
       },
